@@ -719,7 +719,7 @@ class TextOnlyDataset(data.Dataset):
 
 # A wrapper class for t2m original dataset for MDM purposes
 class HumanML3D(data.Dataset):
-    def __init__(self, mode, datapath='./dataset/humanml_opt.txt', split="train", **kwargs):
+    def __init__(self, mode, datapath='dataset/humanml_opt.txt', split="train", **kwargs):
         self.mode = mode
         
         self.dataset_name = 't2m'
@@ -731,11 +731,12 @@ class HumanML3D(data.Dataset):
         device = None  # torch.device('cuda:4') # This param is not in use in this context
         opt = get_opt(dataset_opt_path, device)
         opt.meta_dir = pjoin(abs_base_path, opt.meta_dir)
-        opt.motion_dir = pjoin(abs_base_path, opt.motion_dir)
+        # opt.motion_dir = pjoin(abs_base_path, opt.motion_dir)
         opt.text_dir = pjoin(abs_base_path, opt.text_dir)
         opt.model_dir = pjoin(abs_base_path, opt.model_dir)
         opt.checkpoints_dir = pjoin(abs_base_path, opt.checkpoints_dir)
-        opt.data_root = pjoin(abs_base_path, opt.data_root)
+        # opt.data_root = pjoin(abs_base_path, opt.data_root)
+        opt.data_root = opt.data_root
         opt.save_root = pjoin(abs_base_path, opt.save_root)
         opt.meta_dir = './dataset'
         self.opt = opt

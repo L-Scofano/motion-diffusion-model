@@ -2,6 +2,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "train_kit",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--save_dir",
+                "save/my_kit_trans_enc_512",
+                "--dataset",
+                "kit",
+                "--overwrite",
+            ]
+        },
+        {
             "name": "train_mdm",
             "type": "python",
             "request": "launch",
@@ -9,14 +24,18 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "--save_dir", "save/my_name",
-                "--dataset", "uestc",
-                "--cond_mask_prob", "0",
-                "--lambda_rcxyz", "1",
-                "--lambda_fc", "1",
+                "--save_dir",
+                "save/my_name",
+                "--dataset",
+                "uestc",
+                "--cond_mask_prob",
+                "0",
+                "--lambda_rcxyz",
+                "1",
+                "--lambda_fc",
+                "1",
                 "--overwrite"
             ]
         }
-        
     ]
 }
