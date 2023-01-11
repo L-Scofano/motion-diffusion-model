@@ -3,6 +3,9 @@
 Train a diffusion model on images.
 """
 
+import sys
+sys.path.append("/media/hdd/luca_s/code/DDPMotion/motion-diffusion-model")
+
 import os
 import json
 from utils.fixseed import fixseed
@@ -37,7 +40,10 @@ def main():
 
     print("creating model and diffusion...")
     model, diffusion = create_model_and_diffusion(args, data)
+    # Assign model to device
     model.to(dist_util.dev())
+
+    # The evaluation model is used for SMPL representation
     model.rot2xyz.smpl_model.eval()
 
     print('Total params: %.2fM' % (sum(p.numel() for p in model.parameters_wo_clip()) / 1000000.0))
